@@ -1,5 +1,8 @@
 import os
 import json
+import matplotlib.pyplot as plt
+from random import choices
+
 # get current working directory path
 cwd_path = os.getcwd()
 
@@ -50,6 +53,14 @@ def binary_search(seznam, cislo):
 
 
 
+
+def unordered_sequence(max_len=100):
+    return choices(range(-1000, 1000), k=max_len)
+
+
+sizes = [100, 500, 1000, 5000, 10000]
+times = [0.00001, 0.00003, 0.00006, 0.00031, 0.00067]
+
 def main():
     sequential_data  = read_data("sequential.json", "unordered_numbers")
     sequential_data2 = read_data("sequential.json", "ordered_numbers")
@@ -57,6 +68,12 @@ def main():
     print(sequential_data2)
     print(linear_search( [54, 2, 18, 5, 3, 31, 20, 65, -10, 300, 17, 5, -1, 0, 0, 102, 7, 8, 9, 9, -3, -5, 0, 1, 63, 82, -36, -5], 5))
     print(binary_search(sequential_data2, 13))
+    dld = sizes
+    linear = linear_search(sizes, 10000)
+    binar = binary_search(sizes, 10000)
+    print(dld)
+    print(linear)
+    print(binar)
     pass
 
 
